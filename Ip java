@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .fibonacci {
+      text-align: center;
+      width: 100%;
+    }
+
+    .fibonacci-item {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+    }
+  </style>
+  <title>Fibonacci Series</title>
+</head>
+<body>
+
+<div class="fibonacci" id="fibonacci-series"></div>
+
+<script>
+  function generateFibonacci(n) {
+    let fibonacciSeries = [0, 1];
+
+    for (let i = 2; i < n; i++) {
+      fibonacciSeries.push(fibonacciSeries[i - 1] + fibonacciSeries[i - 2]);
+    }
+
+    return fibonacciSeries;
+  }
+
+  // Change the value of 'n' to control the number of Fibonacci series elements
+  const n = 10;
+  const fibonacciContainer = document.getElementById('fibonacci-series');
+  const fibonacciSeries = generateFibonacci(n);
+
+  fibonacciSeries.forEach(num => {
+    const item = document.createElement('div');
+    item.classList.add('fibonacci-item');
+    item.textContent = num;
+    fibonacciContainer.appendChild(item);
+  });
+</script>
+
+</body>
+</html>
